@@ -68,14 +68,14 @@ def identify(known_visages_directory, unknown_visages_file):
 
     for (top, right, bottom, left), unknown_visage_encoding in zip(unknown_visage_locations, unknown_visage_encodings):
         hits = fr.compare_faces(known_visage_encodings, unknown_visage_encoding)
-        label = "Unknown"
+        label = ""
 
         if True in hits:
             first_hit_index = hits.index(True)
             label = known_visage_labels[first_hit_index]
 
         # Visage outline
-        identified_visages_draw.rectangle(((left, top), (right, bottom)), outline=visage_outline_color, width=2)
+        identified_visages_draw.rectangle(((left, top), (right, bottom)), outline=visage_outline_color, width=8)
 
         text_width, text_height = identified_visages_draw.textsize(label)
         text_x, text_y = left, top - text_height - 10
