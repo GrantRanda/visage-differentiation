@@ -75,7 +75,7 @@ def identify(known_visages_directory, unknown_visages_file):
             label = known_visage_labels[first_hit_index]
 
         # Visage outline
-        identified_visages_draw.rectangle(((left, top), (right, bottom)), outline=visage_outline_color, width=8)
+        identified_visages_draw.rectangle(((left, top), (right, bottom)), outline=visage_outline_color, width=5)
 
         text_width, text_height = identified_visages_draw.textsize(label)
         text_x, text_y = left, top - text_height - 10
